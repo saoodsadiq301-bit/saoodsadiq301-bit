@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Creative designer portfolio — selected work, services and contact.">
+<title>YOUR NAME — Creative Designer</title>
+<style>
+:root{
+  --bg:#0a0a0a; --surface:#111; --text:#f5f5f2; --muted:#a5a5a0;
+  --line:#242424; --accent:#d9ff45; --max:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
+a{color:inherit;text-decoration:none}
+.container{width:min(var(--max),92%);margin:auto}
+nav{height:82px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.logo{font-weight:800;letter-spacing:-.03em;font-size:20px}
+.navlinks{display:flex;gap:30px;color:#ccc;font-size:14px}
+.navlinks a:hover{color:var(--accent)}
+.hero{padding:120px 0 100px}
+.eyebrow{color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:.2em;margin-bottom:22px}
+h1{font-size:clamp(52px,9vw,120px);line-height:.9;letter-spacing:-.065em;max-width:1000px}
+.hero p{max-width:600px;color:var(--muted);font-size:18px;margin:32px 0}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--text);color:#0a0a0a;padding:14px 20px;border-radius:999px;font-weight:700;font-size:14px}
+.btn:hover{background:var(--accent)}
+section{padding:100px 0}
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:35px}
+.section-head h2{font-size:clamp(36px,5vw,64px);letter-spacing:-.05em}
+.section-head p{color:var(--muted);max-width:390px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);overflow:hidden;border-radius:18px}
+.work-img{aspect-ratio:4/3;background:linear-gradient(135deg,#202020,#090909);display:grid;place-items:center;color:#555;font-size:12px;letter-spacing:.15em;text-transform:uppercase}
+.card:nth-child(2) .work-img{background:linear-gradient(135deg,#292929,#121212)}
+.card:nth-child(3) .work-img{background:linear-gradient(135deg,#161616,#303030)}
+.card:nth-child(4) .work-img{background:linear-gradient(135deg,#303030,#111)}
+.card-info{padding:22px;display:flex;justify-content:space-between;gap:15px}
+.card-info span{color:var(--muted);font-size:13px}
+.services{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.service{padding:35px 25px;border-right:1px solid var(--line)}
+.service:last-child{border-right:0}
+.service h3{font-size:21px;margin-bottom:10px}
+.service p{color:var(--muted);font-size:14px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.about h2{font-size:clamp(40px,6vw,75px);line-height:.95;letter-spacing:-.06em}
+.about-copy{color:var(--muted);font-size:17px}
+.about-copy p+p{margin-top:18px}
+.contact{background:var(--text);color:#0a0a0a;border-radius:24px;padding:70px}
+.contact h2{font-size:clamp(44px,7vw,86px);letter-spacing:-.06em;line-height:.92;max-width:800px}
+.contact p{margin:25px 0;color:#555;max-width:550px}
+.contact .btn{background:#0a0a0a;color:#fff}
+footer{padding:35px 0;color:#777;font-size:13px;display:flex;justify-content:space-between}
+@media(max-width:750px){
+ .navlinks{display:none}.hero{padding:80px 0}.grid,.about{grid-template-columns:1fr}.services{grid-template-columns:1fr}
+ .service{border-right:0;border-bottom:1px solid var(--line)}.service:last-child{border-bottom:0}
+ .contact{padding:40px 25px}footer{gap:20px;flex-direction:column}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<nav>
+  <a class="logo" href="#">YOUR NAME.</a>
+  <div class="navlinks">
+    <a href="#work">Work</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="eyebrow">Creative Designer / Available for projects</div>
+  <h1>I CREATE VISUALS THAT MAKE BRANDS STAND OUT.</h1>
+  <p>Premium social media designs, advertising creatives and brand visuals built to capture attention and communicate clearly.</p>
+  <a class="btn" href="#work">View selected work ↓</a>
+</header>
+
+<section id="work">
+  <div class="section-head">
+    <h2>Selected work</h2>
+    <p>Replace these placeholders with your strongest projects. Keep the portfolio focused on quality.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="work-img">YOUR PROJECT 01</div><div class="card-info"><strong>Luxury Campaign</strong><span>Social / Ads</span></div></article>
+    <article class="card"><div class="work-img">YOUR PROJECT 02</div><div class="card-info"><strong>Book Promotion</strong><span>Creative Direction</span></div></article>
+    <article class="card"><div class="work-img">YOUR PROJECT 03</div><div class="card-info"><strong>Brand Campaign</strong><span>Visual Design</span></div></article>
+    <article class="card"><div class="work-img">YOUR PROJECT 04</div><div class="card-info"><strong>Digital Advertising</strong><span>Social Media</span></div></article>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-head"><h2>What I do</h2><p>Design services for businesses, creators and brands that want a stronger visual presence.</p></div>
+  <div class="services">
+    <div class="service"><h3>01 — Social Media</h3><p>Scroll-stopping posts, campaigns and content systems designed for digital platforms.</p></div>
+    <div class="service"><h3>02 — Advertising</h3><p>High-impact ad creatives that turn an offer or message into a clear visual story.</p></div>
+    <div class="service"><h3>03 — Brand Visuals</h3><p>Premium graphics, promotional materials and visual direction that keep a brand consistent.</p></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <h2>DESIGN WITH PURPOSE. NOT JUST DECORATION.</h2>
+    <div class="about-copy">
+      <p>I’m a creative designer focused on making clean, modern and memorable visual content.</p>
+      <p>My approach combines strong typography, storytelling and visual hierarchy to help brands communicate with confidence.</p>
+      <p>Replace this section with your real bio, experience and tools.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <div class="eyebrow" style="color:#555">Have a project in mind?</div>
+    <h2>LET'S CREATE SOMETHING GREAT.</h2>
+    <p>Tell me what you're working on and what you need designed.</p>
+    <a class="btn" href="mailto:your@email.com">Start a project →</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 YOUR NAME</span>
+  <span>Instagram · X · Behance</span>
+</footer>
+</div>
+</body>
+</html>
