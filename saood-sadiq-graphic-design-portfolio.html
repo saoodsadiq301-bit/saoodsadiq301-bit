@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Saood Sadiq — Graphic Designer Portfolio. Logo design, book covers, social media creatives and Amazon listing design." />
+  <title>Saood Sadiq — Graphic Designer</title>
+
+  <!-- Premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070708;
+      --panel:#0d0d10;
+      --text:#f5f5f2;
+      --muted:#98989f;
+      --line:rgba(255,255,255,.11);
+      --glow:rgba(178,120,255,.42);
+      --accent:#b879ff;
+      --accent2:#7c5cff;
+      --max:1280px;
+      --radius:24px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 75% 8%, rgba(124,92,255,.13), transparent 27rem),
+        radial-gradient(circle at 15% 42%, rgba(184,121,255,.07), transparent 25rem),
+        var(--bg);
+      font-family:Manrope,system-ui,sans-serif;
+      overflow-x:hidden;
+    }
+    body:before{
+      content:"";
+      position:fixed; inset:0; pointer-events:none; z-index:20;
+      background-image:linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+                       linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size:70px 70px;
+      mask-image:linear-gradient(to bottom,black,transparent 90%);
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    button{font:inherit}
+    .container{width:min(calc(100% - 48px),var(--max));margin:auto}
+    .mono{font-family:"DM Mono",monospace}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:10px;
+      color:#cfcfd5;font:500 11px/1 "DM Mono",monospace;
+      letter-spacing:.16em;text-transform:uppercase;
+    }
+    .eyebrow:before{
+      content:"";width:28px;height:1px;background:var(--accent);
+      box-shadow:0 0 15px var(--accent);
+    }
+
+    /* cursor glow */
+    .cursor-glow{
+      position:fixed;width:280px;height:280px;border-radius:50%;
+      pointer-events:none;z-index:1;transform:translate(-50%,-50%);
+      background:radial-gradient(circle,rgba(167,106,255,.11),transparent 68%);
+      mix-blend-mode:screen;
+      transition:opacity .3s;
+    }
+
+    /* nav */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      border-bottom:1px solid transparent;
+      transition:.35s ease;
+    }
+    nav.scrolled{
+      background:rgba(7,7,8,.72);
+      backdrop-filter:blur(18px);
+      border-color:var(--line);
+    }
+    .nav-inner{
+      height:78px;display:flex;align-items:center;justify-content:space-between;
+    }
+    .brand{
+      font-family:"Space Grotesk",sans-serif;font-weight:700;letter-spacing:-.05em;
+      font-size:19px;
+    }
+    .brand span{color:var(--accent)}
+    .nav-links{display:flex;gap:30px;align-items:center}
+    .nav-links a{
+      color:#aaaab1;font-size:12px;font-weight:600;
+      transition:.25s;
+    }
+    .nav-links a:hover{color:white}
+    .nav-contact{
+      padding:11px 17px;border:1px solid var(--line);border-radius:999px;
+      font-size:12px;font-weight:700;background:rgba(255,255,255,.03);
+    }
+
+    /* hero */
+    .hero{min-height:100vh;display:grid;align-items:center;padding:140px 0 90px;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:60px;align-items:center}
+    h1{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(58px,8vw,118px);
+      line-height:.86;letter-spacing:-.075em;margin:25px 0;
+      max-width:900px;
+    }
+    h1 .outline{
+      color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.62);
+    }
+    .hero-copy{
+      color:#a8a8ae;font-size:17px;line-height:1.8;max-width:620px;
+    }
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+    .btn{
+      border:1px solid var(--line);padding:14px 20px;border-radius:999px;
+      display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:800;
+      transition:.3s;cursor:pointer;background:rgba(255,255,255,.025);
+    }
+    .btn.primary{
+      background:#f5f5f2;color:#08080a;border-color:#f5f5f2;
+      box-shadow:0 0 35px rgba(255,255,255,.12);
+    }
+    .btn:hover{transform:translateY(-3px);box-shadow:0 15px 40px rgba(0,0,0,.25)}
+    .hero-card{
+      min-height:520px;border:1px solid var(--line);border-radius:36px;
+      overflow:hidden;position:relative;background:#101014;
+      box-shadow:0 30px 100px rgba(0,0,0,.45);
+      transform:rotate(2.2deg);
+    }
+    .hero-card:after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(145deg,rgba(255,255,255,.16),transparent 25%,rgba(124,92,255,.16));
+      pointer-events:none;
+    }
+    .hero-card img{filter:saturate(.85) contrast(1.08)}
+    .hero-label{
+      position:absolute;left:22px;bottom:22px;z-index:2;
+      padding:12px 14px;border:1px solid rgba(255,255,255,.15);
+      border-radius:13px;background:rgba(5,5,7,.62);backdrop-filter:blur(15px);
+      font:500 10px/1.4 "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;
+    }
+    .scroll-note{
+      position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+      color:#73737a;font:400 10px "DM Mono",monospace;letter-spacing:.16em;text-transform:uppercase;
+    }
+
+    /* section */
+    section{padding:125px 0;position:relative}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:45px}
+    .section-head h2{
+      font-family:"Space Grotesk";font-size:clamp(40px,6vw,74px);
+      line-height:.95;letter-spacing:-.065em;margin:14px 0 0;
+    }
+    .section-head p{max-width:390px;color:#888890;font-size:13px;line-height:1.8}
+
+    /* filters */
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+    .filter{
+      border:1px solid var(--line);color:#8e8e95;background:transparent;
+      padding:10px 14px;border-radius:999px;font-size:11px;font-weight:800;
+      cursor:pointer;transition:.25s;
+    }
+    .filter.active,.filter:hover{
+      color:#08080a;background:#f4f4f0;border-color:#f4f4f0;
+    }
+
+    /* portfolio */
+    .work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .work-card{
+      grid-column:span 4;min-height:390px;border:1px solid var(--line);
+      border-radius:var(--radius);overflow:hidden;background:#0e0e11;
+      position:relative;isolation:isolate;cursor:pointer;
+      transform:translateY(35px);opacity:0;
+      transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .8s, border-color .3s;
+    }
+    .work-card.visible{transform:none;opacity:1}
+    .work-card:nth-child(2n){min-height:460px}
+    .work-card:nth-child(5n){grid-column:span 8}
+    .work-card:hover{border-color:rgba(184,121,255,.5)}
+    .work-image{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+    .work-card:hover .work-image{transform:scale(1.045)}
+    .work-image img{filter:saturate(.9) contrast(1.06)}
+    .work-overlay{
+      position:absolute;inset:0;z-index:2;
+      background:linear-gradient(to top,rgba(3,3,5,.94),rgba(3,3,5,.04) 70%);
+    }
+    .work-info{position:absolute;left:22px;right:22px;bottom:20px;z-index:3}
+    .work-type{font:500 9px "DM Mono";letter-spacing:.15em;text-transform:uppercase;color:#c38aff}
+    .work-title{font:700 22px "Space Grotesk";margin:7px 0 5px;letter-spacing:-.035em}
+    .work-meta{font-size:11px;color:#9c9ca3}
+    .open-icon{
+      position:absolute;right:0;bottom:2px;width:35px;height:35px;border-radius:50%;
+      border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;
+      color:white;background:rgba(255,255,255,.05);transition:.3s;
+    }
+    .work-card:hover .open-icon{background:white;color:#09090b;transform:rotate(45deg)}
+
+    /* category showcases */
+    .showcase{border-top:1px solid var(--line);padding-top:55px;margin-top:80px}
+    .showcase-row{
+      display:grid;grid-template-columns:260px 1fr;gap:50px;align-items:start;
+      padding:55px 0;border-bottom:1px solid var(--line);
+    }
+    .showcase-row h3{font:600 30px "Space Grotesk";letter-spacing:-.05em;margin:0 0 12px}
+    .showcase-row p{font-size:12px;line-height:1.8;color:#85858d}
+    .mini-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+    }
+    .mini{
+      aspect-ratio:1/.9;border:1px solid var(--line);border-radius:18px;overflow:hidden;
+      position:relative;background:#111;transition:.4s;
+    }
+    .mini:hover{transform:translateY(-7px) rotate(-.7deg);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+    .mini img{transition:.5s}
+    .mini:hover img{transform:scale(1.06)}
+
+    /* about */
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+    .about-big{
+      font:600 clamp(30px,4vw,53px)/1.04 "Space Grotesk";
+      letter-spacing:-.055em;max-width:650px;
+    }
+    .about-copy{color:#929299;line-height:1.9;font-size:14px}
+    .skills{display:flex;gap:9px;flex-wrap:wrap;margin-top:25px}
+    .skill{border:1px solid var(--line);padding:9px 12px;border-radius:999px;font:500 10px "DM Mono";color:#b5b5bb}
+
+    /* contact */
+    .contact{
+      border:1px solid var(--line);border-radius:36px;padding:70px;
+      background:
+        radial-gradient(circle at 80% 0%,rgba(184,121,255,.18),transparent 35%),
+        linear-gradient(135deg,rgba(255,255,255,.035),transparent);
+      overflow:hidden;position:relative;
+    }
+    .contact h2{font:700 clamp(48px,7vw,95px)/.88 "Space Grotesk";letter-spacing:-.07em;margin:20px 0 30px;max-width:900px}
+    .contact p{color:#94949b;max-width:600px;line-height:1.8;font-size:14px}
+    .contact-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+    footer{padding:35px 0 50px;color:#66666d;font:10px "DM Mono";letter-spacing:.08em;text-transform:uppercase;display:flex;justify-content:space-between;gap:20px}
+
+    /* modal */
+    .modal{
+      position:fixed;inset:0;background:rgba(3,3,4,.78);backdrop-filter:blur(20px);
+      z-index:100;display:none;place-items:center;padding:25px;
+    }
+    .modal.open{display:grid}
+    .modal-box{
+      width:min(1050px,100%);max-height:90vh;overflow:auto;border:1px solid var(--line);
+      border-radius:28px;background:#0c0c0f;box-shadow:0 40px 120px rgba(0,0,0,.65);
+      display:grid;grid-template-columns:1.2fr .8fr;
+    }
+    .modal-img{min-height:520px}
+    .modal-img img{object-fit:contain;background:#08080a}
+    .modal-info{padding:40px}
+    .modal-info h3{font:700 38px "Space Grotesk";letter-spacing:-.05em;margin:12px 0}
+    .modal-info p{color:#92929a;line-height:1.8;font-size:13px}
+    .close{
+      position:fixed;top:25px;right:25px;width:42px;height:42px;border-radius:50%;
+      background:#f3f3ef;color:#070708;border:0;font-size:24px;cursor:pointer;z-index:102;
+    }
+
+    /* responsive */
+    @media(max-width:900px){
+      .hero-grid,.about-grid{grid-template-columns:1fr}
+      .hero-card{min-height:440px;max-width:700px}
+      .showcase-row{grid-template-columns:1fr;gap:25px}
+      .work-card,.work-card:nth-child(5n){grid-column:span 6}
+      .contact{padding:45px 30px}
+      .nav-links{display:none}
+    }
+    @media(max-width:600px){
+      .container{width:min(calc(100% - 28px),var(--max))}
+      .hero{padding-top:120px}
+      h1{font-size:58px}
+      section{padding:90px 0}
+      .section-head{display:block}
+      .section-head p{margin-top:20px}
+      .work-card,.work-card:nth-child(5n){grid-column:span 12;min-height:430px}
+      .mini-grid{grid-template-columns:1fr}
+      .contact{padding:35px 22px}
+      .modal-box{grid-template-columns:1fr}
+      .modal-img{min-height:300px}
+      .modal-info{padding:28px}
+      footer{display:block;line-height:2}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+      .cursor-glow{display:none}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <nav id="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">SAOOD<span>.</span></a>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a class="nav-contact" href="mailto:Saoodsadiq301@gmail.com">Let's talk ↗</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Graphic Designer / Visual Creative</div>
+          <h1>Ideas into<br><span class="outline">visual</span><br>impact.</h1>
+          <p class="hero-copy">
+            I'm <strong>Saood Sadiq</strong> — a graphic designer focused on visual identities,
+            book covers, social media creatives and e-commerce listing design.
+            Clean systems, strong concepts and visuals made to be remembered.
+          </p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#work">Explore my work ↓</a>
+            <a class="btn" href="mailto:Saoodsadiq301@gmail.com">Email me ↗</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <img src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/b02410173165885.648b52d03aba6.jpg" alt="Brand identity and logo presentation reference">
+          <div class="hero-label">Selected visual identity / 2026</div>
+        </div>
+      </div>
+      <div class="scroll-note">Scroll to explore — ↓</div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Selected work</div>
+            <h2>Designed to<br><span style="color:#8d8d95">stand out.</span></h2>
+          </div>
+          <p>Tap a category or open any project. The presentation uses real-world visual references and responsive motion so the portfolio itself feels like a design piece.</p>
+        </div>
+
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="all">All Work</button>
+          <button class="filter" data-filter="logo">Logo</button>
+          <button class="filter" data-filter="book">Book Cover</button>
+          <button class="filter" data-filter="social">Social Media</button>
+          <button class="filter" data-filter="amazon">Amazon Listing</button>
+        </div>
+
+        <div class="work-grid" id="workGrid">
+          <!-- LOGOS -->
+          <article class="work-card" data-cat="logo" data-title="Brand Identity Systems"
+                   data-desc="Logo systems, stationery and presentation mockups built around a clear visual direction."
+                   data-img="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/b02410173165885.648b52d03aba6.jpg">
+            <div class="work-image"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/b02410173165885.648b52d03aba6.jpg" alt="Logo branding mockup"></div>
+            <div class="work-overlay"></div>
+            <div class="work-info"><div class="work-type">Logo / Branding</div><div class="work-title">Brand Identity Systems</div><div class="work-meta">Logo • Stationery • Mockups</div><div class="open-icon">↗</div></div>
+          </article>
+
+          <article class="work-card" data-cat="logo" data-title="Minimal Mark Collection"
+                   data-desc="A clean presentation of modern marks and identity directions, built for digital-first brands."
+                   data-img="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5da44e233779039.68b68819e56ca.jpg">
+            <div class="work-image"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5da44e233779039.68b68819e56ca.jpg" alt="Brand identity presentation"></div>
+            <div class="work-overlay"></div>
+            <div class="work-info"><div class="work-type">Logo / Identity</div><div class="work-title">Minimal Mark Collection</div><div class="work-meta">Identity • Art Direction</div><div class="open-icon">↗</div></div>
+          </article>
+
+          <article class="work-card" data-cat="logo" data-title="Identity in the Real World"
+                   data-desc="Logo work shown in physical contexts to make the visual identity feel tangible and client-ready."
+                   data-img="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3da58d222920777.69d6fffeb4089.png">
+            <div class="work-image"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3da58d222920777.69d6fffeb4089.png" alt="Visual identity presentation"></div>
+            <div class="work-overlay"></div>
+            <div class="work-info"><div class="work-type">Branding</div><div class="work-title">Identity in the Real World</div><div class="work-meta">Brand • Digital • Print</div><div class="open-icon">↗</div></div>
+          </article>
+
+          <!-- BOOKS -->
+          <article class="work-card" data-cat="book" data-title="Editorial Cover Direction"
+                   data-desc="A cinematic editorial cover presentation with strong type hierarchy and atmospheric imagery."
+                   data-img="https://www.printnation.fr/static/book-/-portfolio-/-catalogue_1-298-1_720_540.jpg">
+            <div class="work-image"><img src="https://www.printnation.fr/static/book-/-portfolio-/-catalogue_1-298-1_720_540.jpg" alt="Book cover mockup"></div>
+            <div class="work-overlay"></div>
+            <div class="work-info"><div class="work-type">Book Cover</div><div class="work-title">Editorial Cover Direction</div><div class="work-meta">Cover • Typography • Mockup</div><div class="open-icon">↗</div></div>
+          </article>
+
+          <article class="work-card" data-cat="book" data-title="Cover as a Visual Story"
+                   data-desc="Book-cover compositions where image, title and mood work together as one visual statement."
+                   data-img="https://www.printnation.fr/static/book-/-portfolio-/-catalogue_1-298-1_720_540.jpg">
+            <div class="work-image"><img src="https://www.printnation.fr/static/book-/-portfolio-/-catalogue_1-298-1_720_540.jpg" alt="Editorial book mockup"></div>
+            <div class="work-overlay"></div>
+            <div class="work-info"><div class="work-type">Book Design</div><div class="work-title">Cover as a Visual Story</div><div class="work-meta">Concept • Layout • Art Direction</div><div class="open-icon">↗</div></div>
+          </article>
+
+          <!-- SOCIAL -->
+          <article class="work-card" data-cat="social" data-title="Social Campaign Systems"
+                   data-desc="Scroll-stopping social creatives presented as a consistent campaign rather than isolated posts."
+                   data-img="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3da58d222920777.69d6fffeb4089.png">
+            <div class="work-image"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3da58d222920777.69d6fffeb4089.png" alt="Social media portfolio"></div>
+            <div class="work-overlay"></div>
+            <div class="work-info"><div class="work-type">Social Media</div><div class="work-title">Social Campaign Systems</div><div class="work-meta">Instagram • Campaign • Ads</div><div class="open-icon">↗</div></div>
+          </article>
+
+          <article class="work-card" data-cat="social" data-title="Instagram Creative Direction"
+                   data-desc="Multiple social formats with strong hierarchy, product imagery and platform-native composition."
+                   data-img="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3da58d222920777.69d6fffeb4089.png">
+            <div class="work-image"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3da58d222920777.69d6fffeb4089.png" alt="Instagram post design"></div>
+            <div class="work-overlay"></div>
+            <div class="work-info"><div class="work-type">Social Media</div><div class="work-title">Instagram Creative Direction</div><div class="work-meta">Posts • Stories • Ads</div><div class="open-icon">↗</div></div>
+          </article>
+
+          <!-- AMAZON -->
+          <article class="work-card" data-cat="amazon" data-title="Amazon A+ Content"
+                   data-desc="Product-led A+ content with clear feature hierarchy, benefits and visual storytelling."
+                   data-img="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5da44e233779039.68b68819e56ca.jpg">
+            <div class="work-image"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5da44e233779039.68b68819e56ca.jpg" alt="Amazon A+ product listing"></div>
+            <div class="work-overlay"></div>
+            <div class="work-info"><div class="work-type">Amazon Listing</div><div class="work-title">Amazon A+ Content</div><div class="work-meta">A+ • EBC • Product Graphics</div><div class="open-icon">↗</div></div>
+          </article>
+
+          <article class="work-card" data-cat="amazon" data-title="Listing Image Story"
+                   data-desc="A visual sequence designed to explain product benefits quickly while keeping the listing premium."
+                   data-img="https://mir-s3-cdn-cf.behance.net/projects/max_808/09f623240765309.Y3JvcCwxMzQyLDEwNTAsMjksMA.png">
+            <div class="work-image"><img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/09f623240765309.Y3JvcCwxMzQyLDEwNTAsMjksMA.png" alt="Amazon listing images"></div>
+            <div class="work-overlay"></div>
+            <div class="work-info"><div class="work-type">Amazon Listing</div><div class="work-title">Listing Image Story</div><div class="work-meta">Product • Infographic • EBC</div><div class="open-icon">↗</div></div>
+          </article>
+        </div>
+
+        <div class="showcase">
+          <div class="showcase-row">
+            <div>
+              <div class="eyebrow">01 / Logo</div>
+              <h3>Identity that feels intentional.</h3>
+              <p>Tap through the work above to explore marks, brand systems and presentation mockups.</p>
+            </div>
+            <div class="mini-grid">
+              <div class="mini"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/b02410173165885.648b52d03aba6.jpg" alt="Logo mockup"></div>
+              <div class="mini"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/b02410173165885.648b52d03aba6.jpg" alt="Brand cards"></div>
+              <div class="mini"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3da58d222920777.69d6fffeb4089.png" alt="Brand presentation"></div>
+            </div>
+          </div>
+
+          <div class="showcase-row">
+            <div>
+              <div class="eyebrow">02 / Book Cover</div>
+              <h3>Stories deserve a strong first impression.</h3>
+              <p>Cinematic covers, refined typography and realistic presentation designed to make the book feel tangible.</p>
+            </div>
+            <div class="mini-grid">
+              <div class="mini"><img src="https://www.printnation.fr/static/book-/-portfolio-/-catalogue_1-298-1_720_540.jpg" alt="Book cover"></div>
+              <div class="mini"><img src="https://www.printnation.fr/static/book-/-portfolio-/-catalogue_1-298-1_720_540.jpg" alt="Book mockup"></div>
+              <div class="mini"><img src="https://www.printnation.fr/static/book-/-portfolio-/-catalogue_1-298-1_720_540.jpg" alt="Editorial cover"></div>
+            </div>
+          </div>
+
+          <div class="showcase-row">
+            <div>
+              <div class="eyebrow">03 / Social</div>
+              <h3>Designed for the scroll.</h3>
+              <p>Campaign-ready social visuals with bold hierarchy, clear messaging and premium art direction.</p>
+            </div>
+            <div class="mini-grid">
+              <div class="mini"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3da58d222920777.69d6fffeb4089.png" alt="Social media"></div>
+              <div class="mini"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3da58d222920777.69d6fffeb4089.png" alt="Instagram creatives"></div>
+              <div class="mini"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/3da58d222920777.69d6fffeb4089.png" alt="Social campaign"></div>
+            </div>
+          </div>
+
+          <div class="showcase-row">
+            <div>
+              <div class="eyebrow">04 / Amazon</div>
+              <h3>Product visuals that explain fast.</h3>
+              <p>Listing graphics and A+ content focused on clarity, product benefits and polished e-commerce presentation.</p>
+            </div>
+            <div class="mini-grid">
+              <div class="mini"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5da44e233779039.68b68819e56ca.jpg" alt="Amazon A+ content"></div>
+              <div class="mini"><img src="https://mir-s3-cdn-cf.behance.net/projects/max_808/09f623240765309.Y3JvcCwxMzQyLDEwNTAsMjksMA.png" alt="Amazon listing"></div>
+              <div class="mini"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5da44e233779039.68b68819e56ca.jpg" alt="Product listing design"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="eyebrow">About Saood</div>
+        <div class="about-grid" style="margin-top:30px">
+          <div class="about-big">I build visual systems that make brands, stories and products feel <span style="color:#a879ff">worth noticing.</span></div>
+          <div>
+            <p class="about-copy">
+              Graphic design is more than decoration. My approach combines composition, typography,
+              imagery and visual hierarchy to create work that communicates quickly and looks intentional.
+              My portfolio focuses on four core areas: identity, editorial covers, social content and e-commerce visuals.
+            </p>
+            <div class="skills">
+              <span class="skill">Adobe Photoshop</span>
+              <span class="skill">Adobe Illustrator</span>
+              <span class="skill">Brand Identity</span>
+              <span class="skill">Social Media</span>
+              <span class="skill">Book Covers</span>
+              <span class="skill">Amazon A+</span>
+              <span class="skill">Art Direction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact">
+          <div class="eyebrow">Start a project</div>
+          <h2>Have an idea?<br><span style="color:#a879ff">Let's make it visual.</span></h2>
+          <p>For logo design, book covers, social media creatives or Amazon listing graphics, get in touch directly.</p>
+          <div class="contact-links">
+            <a class="btn primary" href="mailto:Saoodsadiq301@gmail.com">Saoodsadiq301@gmail.com ↗</a>
+            <a class="btn" href="tel:+923178356606">+92 317 8356606 ↗</a>
+            <a class="btn" href="https://wa.me/923178356606" target="_blank" rel="noopener">WhatsApp ↗</a>
+          </div>
+        </div>
+
+        <footer>
+          <span>© 2026 Saood Sadiq — Graphic Designer</span>
+          <span>Logo / Book / Social / Amazon</span>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <button class="close" id="closeModal" aria-label="Close">×</button>
+    <div class="modal-box">
+      <div class="modal-img"><img id="modalImg" src="" alt=""></div>
+      <div class="modal-info">
+        <div class="eyebrow" id="modalType">Selected Work</div>
+        <h3 id="modalTitle">Project</h3>
+        <p id="modalDesc">Project description.</p>
+        <div class="skills" style="margin-top:25px">
+          <span class="skill">Visual Design</span>
+          <span class="skill">Art Direction</span>
+          <span class="skill">Presentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const glow = document.getElementById('cursorGlow');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    window.addEventListener('pointermove', e => {
+      glow.style.left = e.clientX + 'px';
+      glow.style.top = e.clientY + 'px';
+    });
+
+    // Reveal animation
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12});
+
+    document.querySelectorAll('.work-card').forEach(card => revealObserver.observe(card));
+
+    // Category filtering
+    const filters = document.querySelectorAll('.filter');
+    const cards = document.querySelectorAll('.work-card');
+
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+
+        cards.forEach((card, i) => {
+          const show = filter === 'all' || card.dataset.cat === filter;
+          card.style.display = show ? '' : 'none';
+          if(show){
+            card.style.animation = 'none';
+            requestAnimationFrame(() => {
+              card.style.animation = 'fadeUp .55s ease both';
+            });
+          }
+        });
+      });
+    });
+
+    // Modal
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalType = document.getElementById('modalType');
+
+    document.querySelectorAll('.work-card').forEach(card => {
+      card.addEventListener('click', () => {
+        modalImg.src = card.dataset.img;
+        modalImg.alt = card.dataset.title;
+        modalTitle.textContent = card.dataset.title;
+        modalDesc.textContent = card.dataset.desc;
+        modalType.textContent = card.querySelector('.work-type').textContent;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal(){
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('closeModal').addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if(e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+    // Smooth anchor navigation with a small offset
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if(!target) return;
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  </script>
+
+  <style>
+    @keyframes fadeUp{
+      from{opacity:0;transform:translateY(20px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+  </style>
+</body>
+</html>
